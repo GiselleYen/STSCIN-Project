@@ -1,0 +1,70 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #fff;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+li .station-name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+li .status {
+  color: green;
+  font-weight: bold;
+}
+
+li .location {
+  color: #555;
+}
+
+li .connector-type {
+  font-style: italic;
+  color: #333;
+}
+
+.status.offline {
+  color: red;
+}
+
+.status.online {
+  color: green;
+}
+
+button.view-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.view-button:hover {
+  background-color: #45a049;
+}
