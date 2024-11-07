@@ -10,17 +10,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const station = stationList.find(s => s.name === selectedStationName);
 
     if (station) {
-        const detailsElement = document.getElementById('station-details');
-        detailsElement.innerHTML = `
-            <h2>${station.name}</h2>
-            <p><strong>Status:</strong> ${station.status.charAt(0).toUpperCase() + station.status.slice(1)}</p>
-            <p><strong>Location:</strong> ${station.location}</p>
-            <p><strong>Connector Type:</strong> ${station.connector}</p>
-            <p><strong>Power Rating:</strong> ${station.power}</p>
-            <p><strong>Pricing:</strong> ${station.pricing}</p>
+        // Display station details
+        const detailsDiv = document.getElementById('station-details');
+        detailsDiv.innerHTML = `
+            <div><strong>Name:</strong> ${station.name}</div>
+            <div><strong>Status:</strong> ${station.status.charAt(0).toUpperCase() + station.status.slice(1)}</div>
+            <div><strong>Location:</strong> ${station.location}</div>
+            <div><strong>Connector Type:</strong> ${station.connector}</div>
+            <div><strong>Power Rating:</strong> ${station.power}</div>
+            <div><strong>Pricing:</strong> ${station.pricing}</div>
         `;
-    } else {
-        alert('Station not found!');
     }
 });
 
