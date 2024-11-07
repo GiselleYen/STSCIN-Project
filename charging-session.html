@@ -8,14 +8,17 @@
 </head>
 <body>
     <div class="container">
-        <h1>Charging Session - <span id="station-name"></span></h1>
-        <div class="session-info">
+        <h1>Charging Session</h1>
+        <div id="charging-session-details">
+            <!-- Live data will be displayed here -->
+            <p><strong>Station:</strong> <span id="station-name"></span></p>
             <p><strong>Energy Added:</strong> <span id="energy-added">0 kWh</span></p>
             <p><strong>Charging Time:</strong> <span id="charging-time">0 min</span></p>
+            <p><strong>Estimated End Time:</strong> <span id="end-time">Loading...</span></p>
             <p><strong>Estimated Cost:</strong> $<span id="estimated-cost">0.00</span></p>
         </div>
-        <div class="controls">
-            <button id="stop-charging-btn">Stop Charging</button>
+        <div class="button-container">
+            <button id="stop-charging-btn" class="stop-charging-button">Stop Charging</button>
         </div>
     </div>
 

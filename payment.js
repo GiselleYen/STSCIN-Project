@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Simulated session data
     const sessionData = {
         stationName: localStorage.getItem('selectedStation'),
-        energyConsumed: localStorage.getItem('energyAdded') || 0,  // Energy consumed (in kWh)
-        chargingTime: localStorage.getItem('chargingTime') || 0,    // Charging time (in minutes)
-        totalCost: localStorage.getItem('totalCost') || 0.00        // Total cost for the session
+        energyConsumed: parseFloat(localStorage.getItem('energyAdded') || 0),  // Energy consumed (in kWh)
+        chargingTime: parseFloat(localStorage.getItem('chargingTime') || 0),    // Charging time (in minutes)
+        totalCost: parseFloat(localStorage.getItem('totalCost') || 0.00)        // Total cost for the session
     };
 
     // Display session details on the payment page

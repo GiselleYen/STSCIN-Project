@@ -1,79 +1,112 @@
+/* General Page Styling */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
   margin: 0;
   padding: 0;
+  color: #333;
 }
 
 .container {
   width: 80%;
-  margin: 20px auto;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   text-align: center;
+  color: #007bff;
+  margin-bottom: 30px;
+  font-size: 2rem;
 }
 
+/* Station List Styles */
 #station-list {
   list-style: none;
   padding: 0;
 }
 
 #station-list li {
-  background-color: #fff;
-  padding: 20px;
-  margin: 10px 0;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-between; /* Space between station details and button */
-  align-items: center; /* Align items vertically */
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
+}
+
+#station-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .station-name {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .status {
-  color: green;
   font-size: 14px;
+  font-weight: 500;
+}
+
+.status.available {
+  color: #28a745;  /* Green for available */
 }
 
 .status.in-use {
-  color: red;
+  color: #dc3545;  /* Red for in-use */
 }
 
 .location, .connector-type {
-  font-size: 14px;
+  font-size: 13px;
+  color: #6c757d;
 }
 
+/* Button Styling */
 .view-button {
-  padding: 8px 16px;
+  padding: 10px 20px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
 }
 
 .view-button:hover {
   background-color: #0056b3;
 }
 
+.view-button.disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
 .button-container {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
-.back-button,
-.start-charging-button {
-  padding: 10px 20px;
-  border-radius: 4px;
+.back-button, .start-charging-button, #stop-charging-btn, .pay-now-button {
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+/* Back button */
 .back-button {
   background-color: #007bff;
   color: white;
@@ -84,40 +117,66 @@ h1 {
   background-color: #0056b3;
 }
 
+/* Start Charging Button */
 .start-charging-button {
   background-color: #28a745;
   color: white;
-  border: none;
 }
 
 .start-charging-button:hover {
   background-color: #218838;
 }
 
+/* Stop Charging Button */
 #stop-charging-btn {
-  padding: 10px 20px;
   background-color: #dc3545;
   color: white;
   border: none;
   border-radius: 4px;
-  cursor: pointer;
-  margin-top: 20px;
 }
 
 #stop-charging-btn:hover {
   background-color: #c82333;
 }
 
+/* Pay Now Button */
 .pay-now-button {
-  padding: 10px 20px;
   background-color: #28a745;
   color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 20px;
 }
 
 .pay-now-button:hover {
   background-color: #218838;
+}
+
+/* Station Details Section Styling */
+#station-details {
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+#station-details div {
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+#station-details div:last-child {
+  border-bottom: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  #station-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .view-button {
+    margin-top: 10px;
+  }
 }

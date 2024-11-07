@@ -23,7 +23,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Function to simulate OCPP authorization request
+function authorizeOCPP() {
+    return new Promise((resolve, reject) => {
+        console.log("Requesting OCPP authorization...");
+
+        // Simulate a delay for authorization (e.g., network request)
+        setTimeout(() => {
+            const isAuthorized = Math.random() > 0.3; // 70% chance of success
+            if (isAuthorized) {
+                console.log("OCPP authorization successful.");
+                resolve();
+            } else {
+                console.log("OCPP authorization failed.");
+                reject("Authorization failed. Please try again.");
+            }
+        }, 1000); // Adjust delay as needed
+    });
+}
+
 function startCharging() {
-    // Redirect to the charging session page
-    window.location.href = 'charging-session.html';
+    authorizeOCPP()
+        .then(() => {
+            // Freeze for 1 seconds after successful authorization
+            setTimeout(() => {
+                // After 1 seconds, proceed to the charging session page
+                window.location.href = 'charging-session.html';
+            }, 1000); // 1-second delay
+        })
+        .catch(error => {
+            // Display authorization failure message
+            alert(error);
+        });
 }
