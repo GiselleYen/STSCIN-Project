@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Payment</h1>
+        <div id="payment-details">
+            <!-- Payment details will be displayed here -->
+            <p><strong>Station:</strong> <span id="payment-station-name"></span></p>
+            <p><strong>Energy Consumed:</strong> <span id="payment-energy-consumed">0 kWh</span></p>
+            <p><strong>Charging Time:</strong> <span id="payment-charging-time">0 min</span></p>
+            <p><strong>Total Cost:</strong> $<span id="payment-cost">0.00</span></p>
+        </div>
+        <div class="button-container">
+            <button class="pay-now-button" onclick="payNow()">Pay Now</button>
+        </div>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>

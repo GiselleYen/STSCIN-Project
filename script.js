@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
   const stationList = [
-      { name: 'Station 1', status: 'online', location: 'Downtown', connector: 'Type 2', power: '22kW', pricing: '$0.25/kWh' },
-      { name: 'Station 2', status: 'offline', location: 'Uptown', connector: 'CCS', power: '50kW', pricing: 'Not Available' },
-      { name: 'Station 3', status: 'online', location: 'Suburb', connector: 'CHAdeMO', power: '50kW', pricing: '$0.20/kWh' },
-      { name: 'Station 4', status: 'online', location: 'City Center', connector: 'Type 2', power: '22kW', pricing: '$0.30/kWh' }
+      { name: 'Station 1', status: 'available', location: 'Downtown', connector: 'Type 2', power: '22kW', pricing: '$0.25/kWh' },
+      { name: 'Station 2', status: 'in-use', location: 'Uptown', connector: 'CCS', power: '50kW', pricing: 'Not Available' },
+      { name: 'Station 3', status: 'available', location: 'Suburb', connector: 'CHAdeMO', power: '50kW', pricing: '$0.20/kWh' },
+      { name: 'Station 4', status: 'avaiable', location: 'City Center', connector: 'Type 2', power: '22kW', pricing: '$0.30/kWh' }
   ];
 
   const stationListElement = document.getElementById('station-list');
@@ -27,5 +27,6 @@ function viewDetails(stationName) {
   // Store the station name in localStorage for the next page
   localStorage.setItem('selectedStation', stationName);
   // Redirect to the detailed page
+  console.log("hello")
   window.location.href = 'details.html';
 }

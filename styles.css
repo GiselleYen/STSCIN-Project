@@ -1,70 +1,123 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f4f4f9;
   margin: 0;
   padding: 0;
 }
 
 .container {
   width: 80%;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 20px auto;
 }
 
 h1 {
   text-align: center;
-  color: #333;
 }
 
-ul {
-  list-style-type: none;
+#station-list {
+  list-style: none;
   padding: 0;
 }
 
-li {
+#station-list li {
   background-color: #fff;
+  padding: 20px;
   margin: 10px 0;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between; /* Space between station details and button */
+  align-items: center; /* Align items vertically */
 }
 
-li .station-name {
-  font-size: 1.2em;
+.station-name {
+  font-size: 18px;
   font-weight: bold;
 }
 
-li .status {
+.status {
   color: green;
-  font-weight: bold;
+  font-size: 14px;
 }
 
-li .location {
-  color: #555;
-}
-
-li .connector-type {
-  font-style: italic;
-  color: #333;
-}
-
-.status.offline {
+.status.in-use {
   color: red;
 }
 
-.status.online {
-  color: green;
+.location, .connector-type {
+  font-size: 14px;
 }
 
-button.view-button {
-  background-color: #4CAF50;
+.view-button {
+  padding: 8px 16px;
+  background-color: #007bff;
   color: white;
   border: none;
-  padding: 10px;
-  border-radius: 5px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
-button.view-button:hover {
-  background-color: #45a049;
+.view-button:hover {
+  background-color: #0056b3;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.back-button,
+.start-charging-button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.back-button {
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+.start-charging-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+
+.start-charging-button:hover {
+  background-color: #218838;
+}
+
+#stop-charging-btn {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#stop-charging-btn:hover {
+  background-color: #c82333;
+}
+
+.pay-now-button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.pay-now-button:hover {
+  background-color: #218838;
 }
