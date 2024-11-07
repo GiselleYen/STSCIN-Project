@@ -14,7 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (station) {
         // Display station details
+        let isPluggedIn = false;
+        let isCharging = false;
         const detailsDiv = document.getElementById('station-details');
+        const plugButton = document.getElementById('plugButton');
+        const chargeButton = document.getElementById('chargeButton');
+        
         detailsDiv.innerHTML = `
             <div><strong>Name:</strong> ${station.name}</div>
             <div><strong>Status:</strong> ${station.status.charAt(0).toUpperCase() + station.status.slice(1)}</div>
@@ -23,6 +28,31 @@ document.addEventListener('DOMContentLoaded', function() {
             <div><strong>Power Rating:</strong> ${station.power}</div>
             <div><strong>Pricing:</strong> ${station.pricing}</div>
         `;
+
+        // Initialize plug button text
+        plugButton.innerHTML = isPluggedIn ? 'Unplug' : 'Plug';
+        chargeButton.innerHTML = isCharging ? 'Stop Charging' : 'Start Charging';
+        
+        // Plug/Unplug button action
+        plugButton.addEventListener('click', function() {
+            isPluggedIn = !isPluggedIn;
+            plugButton.innerHTML = isPluggedIn ? 'Unplug' : 'Plug';
+            
+            // Enable or disable charging based on plug state
+            chargeButton.disabled = !isPluggedIn;
+            if (!isPluggedIn) {
+                isCharging = false;
+                chargeButton.innerHTML = 'Start Charging';
+            }
+        });
+
+        // Start/Stop charging button action
+        chargeButton.addEventListener('click', function() {
+            if (isPluggedIn) {
+                isCharging = !isCharging;
+                chargeButton.innerHTML = isCharging ? 'Stop Charging' : 'Start Charging';
+            }
+        });
     }
 });
 
