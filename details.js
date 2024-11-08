@@ -27,18 +27,84 @@ document.addEventListener('DOMContentLoaded', function() {
 function authorizeOCPP() {
     return new Promise((resolve, reject) => {
         console.log("Requesting OCPP authorization...");
+        const jsonData = [
+            2,
+            "19223201",
+            "Authorize",
+            {
+                "customData": {
+                    "vendorId": "string"
+                },
+                "idToken": {
+                    "customData": {
+                        "vendorId": "string"
+                    },
+                    "additionalInfo": [
+                        {
+                            "customData": {
+                                "vendorId": "string"
+                            },
+                            "additionalIdToken": "string",
+                            "type": "string"
+                        }
+                    ],
+                    "idToken": "string",
+                    "type": "Central"
+                },
+                "certificate": "string",
+                "iso15118CertificateHashData": [
+                    {
+                        "customData": {
+                            "vendorId": "string"
+                        },
+                        "hashAlgorithm": "SHA256",
+                        "issuerNameHash": "string",
+                        "issuerKeyHash": "string",
+                        "serialNumber": "string",
+                        "responderURL": "string"
+                    }
+                ]
+            }
+        ];
+        console.log(jsonData);        
 
         // Simulate a delay for authorization (e.g., network request)
         setTimeout(() => {
             const isAuthorized = Math.random() > 0.3; // 70% chance of success
             if (isAuthorized) {
                 console.log("OCPP authorization successful.");
-                resolve();
+                const successResponse = [
+                    3,
+                    "19223201",
+                    {
+                        "idTagInfo": {
+                            "status": "Accepted",
+                            "expiryDate": "2024-12-31T23:59:59Z",
+                            "parentIdTag": "parent-12345"
+                        }
+                    }
+                ];
+                console.log(successResponse);
+                setTimeout(() => {
+                    resolve();
+                }, 5000);
             } else {
                 console.log("OCPP authorization failed.");
+                const failedResponse = [
+                    3,
+                    "19223201",
+                    {
+                        "idTagInfo": {
+                            "status": "Invalid",
+                            "expiryDate": null,
+                            "parentIdTag": null
+                        }
+                    }
+                ];
+                console.log(failedResponse);
                 reject("Authorization failed. Please try again.");
             }
-        }, 1000); // Adjust delay as needed
+        }, 2000); // Adjust delay as needed
     });
 }
 
