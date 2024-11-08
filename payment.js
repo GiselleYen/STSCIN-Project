@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Simulated session data
     const sessionData = {
         stationName: localStorage.getItem('selectedStation'),
         energyConsumed: parseFloat(localStorage.getItem('energyAdded') || 0),  // Energy consumed (in kWh)
@@ -15,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function payNow() {
-    // Simulate a payment process (you can later integrate actual payment functionality here)
     alert('Payment successful! Remember unplug the charger plug and return it to the holder');
 
     // Redirect to a confirmation page or back to the main page

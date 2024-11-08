@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Step 1: Subscribe to Charge Point Operator (CPO) using OCPI
     subscribeToCPO()
         .then(() => {
-            // Step 2: Load charging stations after subscription is successful
             loadChargingStations();
         })
         .catch(error => {
@@ -12,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
   });
   
-  // Function to simulate subscription to CPO via OCPI
   function subscribeToCPO() {
     return new Promise((resolve, reject) => {
         console.log("Sending OCPI subscription request");
@@ -33,23 +30,64 @@ document.addEventListener('DOMContentLoaded', function() {
                 status_code: 1000,
                 status_message: "Subscription successful",
                 data: {
-                    subscription_id: "sub-123456"
+                    subscription_id: "sub-123456",
+                    stations: [
+                        {
+                            id: "st-001",
+                            name: "Station 1",
+                            status: "available",
+                            location: "Level 5",
+                            connector: "Type 2",
+                            power: "22kW",
+                            pricing: "RM0.25/kWh",
+                            last_updated: "2024-11-01T10:00:00Z"
+                        },
+                        {
+                            id: "st-002",
+                            name: "Station 2",
+                            status: "in-use",
+                            location: "Level 5",
+                            connector: "CCS",
+                            power: "50kW",
+                            pricing: "Not Available",
+                            last_updated: "2024-11-08T12:30:00Z"
+                        },
+                        {
+                            id: "st-003",
+                            name: "Station 3",
+                            status: "available",
+                            location: "Level 5",
+                            connector: "CHAdeMO",
+                            power: "50kW",
+                            pricing: "RM0.20/kWh",
+                            last_updated: "2024-11-05T09:15:00Z"
+                        },
+                        {
+                            id: "st-004",
+                            name: "Station 4",
+                            status: "available",
+                            location: "Level 5",
+                            connector: "Type 2",
+                            power: "22kW",
+                            pricing: "RM0.30/kWh",
+                            last_updated: "2024-11-07T14:45:00Z"
+                        }
+                    ]
                 }
             };
             console.log(response);
-            resolve(response); // Resolve with the response data
-        }, 1500);// Adjust delay as needed
+            resolve(response); 
+        }, 1500);
     });
 }
 
-  
-  // Function to load and display charging stations
+
   function loadChargingStations() {
     const stationList = [
-        { name: 'Station 1', status: 'available', location: 'Downtown', connector: 'Type 2', power: '22kW', pricing: '$0.25/kWh' },
-        { name: 'Station 2', status: 'in-use', location: 'Uptown', connector: 'CCS', power: '50kW', pricing: 'Not Available' },
-        { name: 'Station 3', status: 'available', location: 'Suburb', connector: 'CHAdeMO', power: '50kW', pricing: '$0.20/kWh' },
-        { name: 'Station 4', status: 'available', location: 'City Center', connector: 'Type 2', power: '22kW', pricing: '$0.30/kWh' }
+        { name: 'Station 1', status: 'available', location: 'Level 5', connector: 'Type 2', power: '22kW', pricing: 'RM0.25/kWh' },
+        { name: 'Station 2', status: 'in-use', location: 'Level 5', connector: 'CCS', power: '50kW', pricing: 'Not Available' },
+        { name: 'Station 3', status: 'available', location: 'Level 5', connector: 'CHAdeMO', power: '50kW', pricing: 'RM0.20/kWh' },
+        { name: 'Station 4', status: 'available', location: 'Level 5', connector: 'Type 2', power: '22kW', pricing: 'RM0.30/kWh' }
     ];
   
     const stationListElement = document.getElementById('station-list');
@@ -76,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function viewDetails(stationName) {
     // Store the station name in localStorage for the next page
     localStorage.setItem('selectedStation', stationName);
-    // Redirect to the detailed page
+    
     console.log("Navigating to details page for station: " + stationName);
     window.location.href = 'details.html';
   }
